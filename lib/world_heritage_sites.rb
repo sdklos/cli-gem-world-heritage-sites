@@ -21,17 +21,17 @@ class WorldHeritageSites
   def self.scrape_countries
     doc = Nokogiri::HTML(open('http://whc.unesco.org/en/list/'))
     box = doc.css("div#acc.box")
-    countries = []
-    box.css("h4 a").text.each do |country|
-      countries << country
-    end
-    binding.pry
-    instance.save
-    instance
+    #doc.css("div#acc.box").each do |box|
+    @countries = []
+      box.css("h4").each do |country|
+        name = country.css("a").text
+        @countries << name
+      end
+      binding.pry
   end
 
-  def self.new_from_url(url)
-
+  def countries
+    @countries
   end
 
 end
