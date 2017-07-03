@@ -1,0 +1,2 @@
+class WorldHeritageSites
+end
